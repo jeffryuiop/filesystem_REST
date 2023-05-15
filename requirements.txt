@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+gunicorn
+aiofiles
+requests
+httpx
+python-multipart
+ujson
+python-jose[cryptography]
+passlib[bcrypt]

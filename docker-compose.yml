@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  api:
+    build: ./
+    image: filesystem-rest:v1.0
+    command:  gunicorn --log-level INFO -w 4 -k uvicorn.workers.UvicornWorker --keep-alive 20 app:app -b 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    networks:
+      - test_network
+
+networks:
+  test_network:
+    driver: bridge

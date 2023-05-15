@@ -1,0 +1,24 @@
+prerequisite:
+Ubuntu 22 LTS, Docker
+
+for testing: please pip install pytest locust
+
+features:
+- basic docker file for easier setup
+- checked if file exist before upload / update / delete
+- checked if len(in) = len(out) after upload update
+- check if local file path is a file 
+    - will trigger exception if a folder
+- will create intermidiary folders if needed for upload
+- concurrency ok as long as not requesting the same file
+- stream version got a check for free space -> the vanilla version should trigger exception if not enough
+
+future work:
+- security(?) -> depends on if this api will be for internal use or not.
+- to extend to windows, there might be a need to modify the codes. some imports might not work.
+- write better test to reduce locust test fail cases
+
+test: -> Additional library for testing: [pytest, locust]
+    - check if everything is working -> and see how many request a server can handle
+    - concurrency -> test if 2 request edit same file.
+    - big files -> up to 1GB binary file have been tested
